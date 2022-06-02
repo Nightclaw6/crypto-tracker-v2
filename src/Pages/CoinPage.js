@@ -8,9 +8,9 @@ import { CryptoState } from '../CryptoContext';
 import ReactHtmlParser from 'react-html-parser';
 import { numberWithCommas } from '../Components/CoinsTable';
 
-// export function numberWithCommas(x) {
-//   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-// }
+// // export function numberWithCommas(x) {
+// //   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// // }
 
 const CoinPage = () => {
   
@@ -63,9 +63,10 @@ const CoinPage = () => {
         </div>
       </div>
       {/* chart */}
-      <CoinInfo coin={coin}/>
+      <CoinInfo coin={coin} />
     </div>
   )
 }
 
 export default CoinPage;
+
