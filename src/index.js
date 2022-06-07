@@ -1,17 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import CryptoContext from './CryptoContext';
-import 'react-alice-carousel/lib/alice-carousel.css';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import "react-alice-carousel/lib/alice-carousel.css";
+import CryptoContext from "./CryptoContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <CryptoContext>
       <App />
-    </CryptoContext>  
-  </React.StrictMode>
+    </CryptoContext>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
 
 
