@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-// import { makeStyles } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core';
 import {
   Container,
   createTheme,
@@ -32,23 +32,23 @@ export default function CoinsTable() {
   const [page, setPage] = useState(1);
   const { currency, symbol } = CryptoState();
 
-  // const useStyles = makeStyles({
-  //   row: {
-  //     backgroundColor: "#16171a",
-  //     cursor: "pointer",
-  //   //   "&:hover": {
-  //   //     backgroundColor: "#131111",
-  //   //   },
-  //     fontFamily: "Montserrat",
-  //   }
-  //   // pagination: {
-  //   //   "& .MuiPaginationItem-root": {
-  //   //     color: "gold",
-  //   //   },
-  //   // },
-  // });
+  const useStyles = makeStyles({
+    row: {
+      backgroundColor: "#16171a",
+      cursor: "pointer",
+      "&:hover": {
+        backgroundColor: "#131111",
+      },
+      fontFamily: "Montserrat",
+    },
+    pagination: {
+      "& .MuiPaginationItem-root": {
+        color: "gold",
+      },
+    },
+  });
 
-  // const classes = useStyles();
+  const classes = useStyles();
   const history = useHistory();
 
   const darkTheme = createTheme({
@@ -207,8 +207,8 @@ export default function CoinsTable() {
       //     }}
       //   /> */}
       // </Container>
-    // </ThemeProvider>
-    <Container style={{ textAlign: "center" }}>
+      <ThemeProvider theme={darkTheme}>
+        <Container style={{ textAlign: "center" }}>
         <Typography
           variant="h4"
           style={{ margin: 18, fontFamily: "Montserrat" }}
@@ -246,13 +246,13 @@ export default function CoinsTable() {
 
               <TableBody>
                 {handleSearch()
-                  // .slice((page - 1) * 10, (page - 1) * 10 + 10)
+                  .slice((page - 1) * 10, (page - 1) * 10 + 10)
                   .map((row) => {
                     const profit = row.price_change_percentage_24h > 0;
                     return (
                       <TableRow
                         onClick={() => history.push(`/coins/${row.id}`)}
-                        // className={classes.row}
+                        className={classes.row}
                         key={row.name}
                       >
                         <TableCell
@@ -315,7 +315,7 @@ export default function CoinsTable() {
         </TableContainer>
 
         {/* Comes from @material-ui/lab */}
-        {/* <Pagination
+        <Pagination
           count={(handleSearch()?.length / 10).toFixed(0)}
           style={{
             padding: 20,
@@ -323,12 +323,13 @@ export default function CoinsTable() {
             display: "flex",
             justifyContent: "center",
           }}
-          // classes={{ ul: classes.pagination }}
+          classes={{ ul: classes.pagination }}
           onChange={(_, value) => {
             setPage(value);
             window.scroll(0, 450);
           }}
-        /> */}
+        />
       </Container>
+    </ThemeProvider>
   );
 }

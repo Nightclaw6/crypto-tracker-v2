@@ -1,4 +1,4 @@
-import { CircularProgress, createTheme, ThemeProvider } from '@material-ui/core';
+import { CircularProgress, createTheme, ThemeProvider, makeStyles } from '@material-ui/core';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { HistoricalChart } from '../config/api';
@@ -36,8 +36,27 @@ const CoinInfo = ( { coin } ) => {
   const { currency } = CryptoState();
   const [flag, setflag] = useState(false);
 
+  const useStyles = makeStyles((theme) => ({
+    container: {
+      width: "75%",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: 25,
+      padding: 40,
+      [theme.breakpoints.down("md")]: {
+        width: "100%",
+        marginTop: 0,
+        padding: 20,
+        paddingTop: 0,
+      },
+    },
+  }));
+
+    const classes = useStyles();
     
-  const fetchHistoricData = async () => {
+    const fetchHistoricData = async () => {
     const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/${coin.id}/market_chart?vs_currency=${currency}&days=${days}`);
     setflag(true);
     setHistoricData(data.prices);
@@ -47,7 +66,7 @@ const CoinInfo = ( { coin } ) => {
   useEffect(() => {
     fetchHistoricData();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currency, days]);
+  }, [ currency, days ]);
 
   const darkTheme = createTheme({
     palette: {
@@ -60,8 +79,8 @@ const CoinInfo = ( { coin } ) => {
   
   return (
     <ThemeProvider theme={darkTheme}>
-      <div>
-        {!historicData ? (
+      <div className={classes.container}>
+        {!historicData || flag === false ? (
           <CircularProgress
             style={{ color: "gold" }}
             size={250}
