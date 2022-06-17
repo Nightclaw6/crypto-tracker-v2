@@ -2,6 +2,7 @@ import { makeStyles, AppBar, Container, createTheme, MenuItem, Select, Toolbar, 
 import React from 'react'
 import { useHistory } from "react-router-dom"
 import { CryptoState } from '../CryptoContext';
+import AuthModal from './Authentication/AuthModal';
 
 const useStyles = makeStyles( () => ({
     title: {
@@ -46,6 +47,7 @@ const Header = () => {
                         <MenuItem value={"CAD"}>CAD</MenuItem>
                         <MenuItem value={"USD"}>USD</MenuItem>
                     </Select>
+                    <AuthModal />
                 </Toolbar>
 
             </Container>
