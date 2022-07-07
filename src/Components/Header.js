@@ -8,7 +8,7 @@ import UserSidebar from './Authentication/UserSidebar';
 const useStyles = makeStyles( () => ({
     title: {
       flex: 1,
-      color: "gold",
+      color: "#f89d21",
       fontFamily: "Montserrat",
       fontWeight: "bold",
       cursor: "pointer"  
@@ -35,7 +35,7 @@ const Header = () => {
             <Container>
                 <Toolbar>
                     <Typography onClick={() => history.push('/')}className={classes.title} variant="h6">
-                        Crypto Tracker
+                        CryptoBase
                     </Typography>
                     <Select variant='outlined' style={{
                         width: 100,

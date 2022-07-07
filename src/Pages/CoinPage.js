@@ -10,9 +10,6 @@ import { numberWithCommas } from '../Components/CoinsTable';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
 
-// export function numberWithCommas(x) {
-//   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-// }
 
 const CoinPage = () => {
   
@@ -138,7 +135,7 @@ const CoinPage = () => {
           </span>
 
           {user && (
-            <Button variant="outlined" style={{ width: "100%", height: 40, backgroundColor: "#ff0000"}} onClick={inWatchlist ? removeFromWatchlist : addToWatchlist} >
+            <Button variant="outlined" style={{ width: "100%", height: 40, backgroundColor: "#168c31"}} onClick={inWatchlist ? removeFromWatchlist : addToWatchlist} >
               {inWatchlist ? "Remove from Watchlist" : "Add To Watchlist"}
             </Button>  
 

@@ -33,13 +33,13 @@ const useStyles = makeStyles({
     width: 200,
     height: 200,
     cursor: "pointer",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#f89d21",
     objectFit: "contain"
   },
   logout: {
     height: "8%",
     width: "100%",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#f89d21",
     marginTop: 20
   },
   watchlist: {
@@ -63,7 +63,7 @@ const useStyles = makeStyles({
     display: "flex",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#EEBC1D",
+    backgroundColor: "#f89d21",
     boxShadow: "0 0 3px black"
   }
 });
@@ -107,7 +107,7 @@ export default function UserSidebar() {
     <div>
       {[ 'right' ].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Avatar onClick={toggleDrawer(anchor, true)} style={{ height: 38, width: 38, cursor: "pointer", backgroundColor: "#EEBC1D"}} src= {user.photoURL} alt={user.displayName || user.email}/>
+          <Avatar onClick={toggleDrawer(anchor, true)} style={{ height: 38, width: 38, cursor: "pointer", backgroundColor: "#f89d21"}} src= {user.photoURL} alt={user.displayName || user.email}/>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             <div className={classes.container}>
                 <div className={classes.profile}>

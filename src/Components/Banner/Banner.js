@@ -4,9 +4,9 @@ import Carousel from './Carousel';
 
 const useStyles = makeStyles( () => ({
     banner: {
-        backgroundImage: "url(./././banner2.jpg)",
+        backgroundImage: "url(./././orange3.jpg)",
     },
-    annerContent: {
+    bannerContent: {
     height: 400,
     display: "flex",
     flexDirection: "column",
@@ -37,14 +37,14 @@ const Banner = () => {
             marginBottom: 15,
             fontFamily: "Montserrat",
           }}>
-            Crypto Tracker
+            CryptoBase
           </Typography>
           <Typography variant="subtitle2" style={{
             color:"darkgrey",
             textTransform: "capitalize",
             fontFamily: "Montserrat",
           }}>
-            Get all the information about your favourite crypto currency.
+            All the information you need about your favourite crypto currency.
           </Typography>
         </div>
         <Carousel />

@@ -69,7 +69,7 @@ export default function AuthModal() {
       <Button variant="contained" style={{
         width: 85,
         height: 40,
-        backgroundColor: "#EEBC1D",
+        backgroundColor: "#f89d21",
       }} onClick={handleOpen}>Login</Button>
       <Modal
         aria-labelledby="transition-modal-title"

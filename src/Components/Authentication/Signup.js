@@ -37,7 +37,7 @@ const Signup = ({handleClose}) => {
         </TextField>
         <TextField variant="outlined" type="password" label= "Confirm Password" value={confirmPassword} onChange={ (e) => setConfirmPassword(e.target.value)} fullWidth>
         </TextField>
-        <Button variant="contained" size="large" style={{ backgroundColor: "#EEBC1D"}} onClick={handleSubmit}>Sign Up
+        <Button variant="contained" size="large" style={{ backgroundColor: "#f89d21"}} onClick={handleSubmit}>Sign Up
         </Button>            
     </Box>
   )
