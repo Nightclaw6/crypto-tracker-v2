@@ -6,9 +6,12 @@ import CoinInfo from '../Components/CoinInfo';
 import { SingleCoin } from '../config/api';
 import { CryptoState } from '../CryptoContext';
 import ReactHtmlParser from 'react-html-parser';
-import { numberWithCommas } from '../Components/CoinsTable';
 import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../firebase';
+
+export function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
 
 
 const CoinPage = () => {
@@ -45,7 +48,7 @@ const CoinPage = () => {
       flexDirection: "column",
       alignItems: "center",
       marginTop: 25,
-      borderRight: "2px solid grey",
+      borderRight: "2px solid #f89d21",
     },
     heading: {
       fontWeight: "bold",
@@ -130,7 +133,7 @@ const CoinPage = () => {
             &nbsp; &nbsp;
             <Typography variant="h5">
               {symbol}{" "}
-              {coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0, -6)}M
+              {numberWithCommas(coin?.market_data.market_cap[currency.toLowerCase()].toString().slice(0, -6))}M
             </Typography>
           </span>
 
